@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html manifest="/cache.manifest">
+	<head>
+		<html manifest="cache.manifest"> 
+		<title>Snake!</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name = "viewport" content = "initial-scale = 1.0, user-scalable = no">
+		<META NAME="Description" CONTENT="Now you can play the first touch based snake game on your iOS or Android device. The rules are simple, swipe your finger in the direction you want to move, eat the green squares & avoid your own body! Can also be played on a computer using the arrow keys on the keyboard.">
+		<link rel="icon" type="image/ico" href="css/images/favicon.ico">
+		<link rel="apple-touch-startup-image" href="css/images/startup.png" />
+		<!-- iPhone/iPod Touch Portrait – 320 x 460 (standard resolution) -->
+		<link rel="apple-touch-startup-image" href="startup.png" media="screen and (max-device-width: 320px)" />
+
+		<!-- iPhone/iPod Touch Portrait – 640 x 920 pixels (high-resolution) -->
+		<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="startup-640x920.png" />
+		<link rel="apple-touch-icon" href="css/images/iphone.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="css/images/ipad.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="css/images/iphone4.png" />
+		<link href="css/snake.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="pause-button-wrapper">
+					<a href="#" class="pause-button button">Pause</a>
+				</div>
+				
+				<h1>Snake!</h1>
+				
+				<div id="score_contain">
+					Score: <span id="score">0</span>
+				</div>
+			</div>
+			
+			<div id="canvas-background">
+				<canvas id='canvas'></canvas>
+			</div>
+			
+			<div id="ads">
+				<script type="text/javascript"><!--
+					google_ad_client = "ca-pub-4403590501196038";
+					/* snakeAd */
+					google_ad_slot = "2751931479";
+					google_ad_width = 320;
+					google_ad_height = 50;
+					//-->
+				</script>
+				<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</div>
+			
+			<!-- modal content -->
+			<div id="main-menu">
+				<div id="main-content" class="menu">
+					<h3>Main Menu</h3>
+					<a href="#" class="button large" onclick="about();">About</a>
+					<a href="#" class="simplemodal-close large button" onclick="start();">Play</a>
+					<p class="me">Designed by Alex Thorpe</p>
+				</div>
+				
+				<div id="about-content" class="menu" style="display:none;">
+					<h3 class="about">About Snake</h3>
+					<p>Now you can play the first touch based snake game on your iOS or Android device. The rules are simple, swipe your finger in the direction you want to move, eat the green squares & avoid your own body! Can also be played on a computer using the arrow keys on the keyboard.</p>
+					<a href="#" class="button medium right blue" onclick="back();">Back</a>
+				</div>
+				
+				<div id="pause-content" class="menu" style="display:none;">
+					<h3 class="paused">Game Paused</h3>
+					<a href="#" class="simplemodal-close large button" onclick="restart();">Restart</a>
+					<a href="#" class="simplemodal-close large button" onclick="play();">Resume</a>
+					<a href="#" class="button large" href="#" onclick="back();">Main Menu</a>
+				</div>
+			
+				<div id="gameover-content" class="menu" style="display:none;">
+					<div id="ribbon" class="hide">
+					  <div class="ribbon-body">
+					     <span>New Record!</span>
+					  </div>         
+					  <div class="triangle"></div>   
+					</div> 
+					<h3 class="about">GAME OVER</h3>
+					<p class="your">Your Score:</p> 
+					<span class='current-score'>0</span>
+					<p class="high">High Score:  <span class='high-score'>0</span></p>
+					<a href="#" class="button medium replay" href="#" onclick="back();">Main Menu</a>
+					<a href="#" class="simplemodal-close button replay blue medium" onclick="restart();">Replay</a>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="js/snake.min.js" ></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				
+				orient();          
+				runSnake();				
+				touchEvents();
+				
+				$('a.pause-button').click(function (e) {
+					e.preventDefault();
+					pause();
+					pauseMenu();
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			window.applicationCache.addEventListener('updateready', function(){
+				window.applicationCache.swapCache();
+			}, false);
+		</script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29884566-1']);
+			_gaq.push(['_trackPageview']);
+			
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+    </body>
+</html>

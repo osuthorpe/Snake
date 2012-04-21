@@ -1,0 +1,21 @@
+CACHE MANIFEST
+      
+# Version 3
+
+CACHE:
+/js/snake.min.js
+/js/jquery-1.7.1.min.js
+/css/snake.css
+/css/images/favicon.ico
+/css/images/grid.png
+/css/images/noise-bg.gif
+/css/images/ajax-loader.png
+/css/images/wallpaper.gif
+startup.png
+startup-640x920.png
+
+FALLBACK:
+/ /index.html
+
+NETWORK:
+*
